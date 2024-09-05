@@ -16,44 +16,38 @@ redirect_from:
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
 <span class='anchor' id='about-me'></span>
-I am a first-year Master of Science in AIE (Artificial Intelligence Engineering) student at [CMU Department of Electrical and Computer Engineering](https://www.ece.cmu.edu/index.html). I'm also affiliated with [CMU Robotics Institute](https://www.ri.cmu.edu/) and a member of [Robots Perceiving and Doing Lab](https://r-pad.github.io/), advised by Associate Professor [David Held](https://davheld.github.io/). 
+I am a first-year Master of Science in Artificial Intelligence Engineering student at [CMU Department of Electrical and Computer Engineering](https://www.ece.cmu.edu/index.html). I'm also affiliated with [CMU Robotics Institute](https://www.ri.cmu.edu/) and a member of [Robots Perceiving and Doing Lab](https://r-pad.github.io/), advised by Associate Professor [David Held](https://davheld.github.io/). 
 
-Previously, I obtained Bachelor of Science in Electrical Engineering from University of Illinois at Urbana-Champaign with the Highest Honor. I joined [Human-Centered Autonomy Lab](https://thehcalab.web.illinois.edu/) and carried out research projects investigating offline reinforcement learning methods to real-world robotics problems, advised by [Pulkit Katdare](https://ece.illinois.edu/about/directory/grad-students/katdare2) and Assistant Professor [Katie Driggs-Campbell](https://krdc.web.illinois.edu/).
+Previously, I obtained Bachelor of Science in Electrical Engineering from [University of Illinois at Urbana-Champaign](https://illinois.edu/) with [the Highest Honor](https://cee.illinois.edu/academics/undergraduate-programs/undergraduate-honors-programs#:~:text=Highest%20Honors%20may%20be%20awarded,academic%20and%2For%20professional%20nature.). In the meantime, I also joined [Human-Centered Autonomy Lab](https://thehcalab.web.illinois.edu/) as a research assistant, advised by [Pulkit Katdare](https://ece.illinois.edu/about/directory/grad-students/katdare2) and Assistant Professor [Katie Driggs-Campbell](https://krdc.web.illinois.edu/). I also joined [the Chinese University of Hong Kong](https://www.cuhk.edu.hk/english/index.html)  and [Ren Lab](https://www.labren.org/mm/) as a research assistant, advised by [Huxin Gao](https://ghx-0228.github.io/) and Professor [Hongliang Ren](https://www.ee.cuhk.edu.hk/en-gb/people/academic-staff/professors/prof-ren-hongliang).
 
-I also served as a research intern at [Ren Lab](https://www.labren.org/mm/) and worked on perception for surgical robotics, advised by [Huxin Gao](https://ghx-0228.github.io/) and Professor [Hongliang Ren](https://www.ee.cuhk.edu.hk/en-gb/people/academic-staff/professors/prof-ren-hongliang).
-
-I am broadly interested in robot learning, especially RL, imitation learning and their application in robotics. My goal is to develop algorithms for real-world challenges, such as robust and generalizable robot manipulation.
-
-
+I am broadly interested in assistive robotics, which include but not limited to human-robot interactions, robot learning from demonstrations, etc. My ultimate goal is to develop algorithms that enable robots with fundamental skills and learn from interactomh with humans in unstructured environments, such as generalizable robot object manipulation.
 
 
 # 🔥 News
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2022.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2024.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2024.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 
 # 📝 Publications 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"></div><img src='images/research/GIReplay_resize.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
+[Enabling intelligent procedures: endoscopy dataset collection trends and pipeline](https://shop.elsevier.com/books/handbook-of-robotic-surgery/zequi/978-0-443-13271-1)
 
-**Kaiming He**, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+**Lyuxing He**, Huxin Gao, Hongliang Ren
 
-[**Project**](https://scholar.google.com/citations?view_op=view_citation&hl=zh-CN&user=DhtAFkwAAAAJ&citation_for_view=DhtAFkwAAAAJ:ALROH1vI_8AC) <strong><span class='show_paper_citations' data='DhtAFkwAAAAJ:ALROH1vI_8AC'></span></strong>
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 </div>
 </div>
 
-- [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020**
+*More papers coming soon...*
 
 # 🎖 Honors and Awards
 - *2021.10* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2021.09* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 
 # 📖 Educations
-- *2019.06 - 2022.04 (now)*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2015.09 - 2019.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2024 - present (now)*, Master of Science in Artificial Intelligence Engineering, Carnegie Mellon University. 
+- *2019 - 2023*, Bachelor of Science in Electrical Engineering, University of Illinois at Urbana-Champaign.
 
 # 💬 Invited Talks
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
