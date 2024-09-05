@@ -22,10 +22,17 @@ Previously, I obtained Bachelor of Science in Electrical Engineering from [Unive
 
 I am broadly interested in assistive robotics, which include but not limited to human-robot interactions, robot learning from demonstrations, etc. My ultimate goal is to develop algorithms that enable robots with fundamental skills and learn from interactomh with humans in unstructured environments, such as generalizable robot object manipulation.
 
+Besides research, I've also been self-learning piano since 2022. I'm an amateur pianist specialized at playing anime theme songs arrangements, and I'm a huge fan of [Animenz](https://www.animenzpiano.com/)! You can find my recorded videos and sound tracks in the following links:
+xx
+xx
+
 
 # 🔥 News
-- *2024.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
-- *2024.02*: &nbsp;🎉🎉 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
+- *2024.08*: &nbsp;🎉🎉 I joined RPAD Lab as a research assistant under Prof. David Held and will be working on rgeneralizable robot object manipulation.
+- *2024.01*: &nbsp;🎉🎉 I joined [A4x](https://a4x.io/) Robotics Group as an algorithm intern.
+- *2023.12*: &nbsp;🎉🎉 I graduated from UIUC with the highest honor.
+- *2023.05*: &nbsp;🎉🎉 I won Honorable Mention for my Senior Project [Autonomous Following Luggage Platform](https://courses.grainger.illinois.edu/ece445/getfile.asp?id=21164)
+
 
 # 📝 Publications 
 
@@ -55,3 +62,5 @@ I am broadly interested in assistive robotics, which include but not limited to 
 
 # 💻 Internships
 - *2019.05 - 2020.02*, [Lorem](https://github.com/), China.
+
+# 🎼 Music
