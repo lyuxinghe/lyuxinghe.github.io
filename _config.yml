@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Lyuxing He"
-description              : "MS in Artificial Intelligence student at CMU, Dept. of ECE, afflliated with Robotics Institute (RI). Research focuses on robot learning from human demonstrations."
+description              : "MS in Artificial Intelligence student at CMU, Dept. of ECE, afflliated with Robotics Institute (RI). Research focuses on robot learning and robot manipulation."
 repository               : "RayeRen/acad-homepage.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -37,10 +37,10 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : # e.g., "github username"
+  github           : "lyuxinghe"
   google_plus      :
   keybase          :
-  instagram        :
+  instagram        : "https://www.instagram.com/lyuxinghe?igsh=MWUxMDI3N3YyeXp4MQ%3D%3D&utm_source=qr"
   impactstory      : # e.g., "https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         : # e.g., "linkedin username"
