@@ -22,7 +22,7 @@ Previously, I obtained Bachelor of Science in Electrical Engineering with a mino
 
 I am broadly interested in assistive robotics, which include but not limited to human-robot interactions, robot learning from demonstrations, etc. My ultimate goal is to develop algorithms that enable robots with fundamental skills (generalizable robot object manipulation, etc.) and learn from interactomh with humans in unstructured environments to assist with daily activities.
 
-Besides research, I've also been self-learning piano since 2022. I'm an amateur pianist playing anime theme songs arrangements, and I'm a huge fan of [Animenz](https://www.animenzpiano.com/)! You can find my piano recital videos in my [![YouTube](images/music/icons8-youtube-30.png)](https://www.youtube.com/@lyuxinghe630) or [![Bilibili](images/music/icons8-bilibili-30.png)](https://www.youtube.com/@lyuxinghe630)
+Besides research, I've also been self-learning piano since 2022. I'm an amateur pianist playing anime theme songs arrangements, and I'm a huge fan of [Animenz](https://www.animenzpiano.com/)! You can find my piano recital videos in my [![YouTube](images/music/icons8-youtube-30.png)](https://www.youtube.com/@lyuxinghe630) or [![Bilibili](images/music/icons8-bilibili-30.png)](https://space.bilibili.com/1685669438)
 
 
 # 🔥 News
