@@ -20,7 +20,7 @@ html { box-sizing: border-box; }
   {% capture bg %}{% if site.colors[node.bg] %}{{ site.colors[node.bg] }}{% else %}{{ node.bg }}{% endif %}{% endcapture %}
   {% capture fg %}{% if site.colors[node.color] %}{{ site.colors[node.color] }}{% else %}{{ node.color }}{% endif %}{% endcapture %}
   nav .p-{{id}} { border-color: {{ bg }}; }
-  #{{id}} { background-color: {{ bg }} !important; color: {{ fg }}; }
+  #{{id}} { background-color: {{ bg }} !important; color: {{ fg }}; --section-bg: {{ bg }}; --section-fg: {{ fg }}; }
   #{{id}} a { color: {{ fg }}; }
   #{{id}} .sectiondivider { color: {{ bg }}; }
 {% endfor %}
@@ -355,3 +355,215 @@ nav ul li:hover, nav ul li.active {
     column-count:         2;
   }
 }
+
+
+/* ================================
+   Sitewide Typography System
+   - Define font families, sizes, and weights for headings and text
+   - Add utility classes for easy overrides
+   ================================ */
+
+/* Optional: load a font with multiple weights (keep Raleway as fallback) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --font-sans: 'Inter', 'Raleway', Arial, sans-serif;
+
+  --h1-size: clamp(36px, 6vw, 64px);
+  --h1-weight: 800;
+
+  --h2-size: clamp(28px, 4.5vw, 40px);
+  --h2-weight: 700;
+
+  --h3-size: 28px;
+  --h3-weight: 700;
+
+  --h4-size: 21px;
+  --h4-weight: 600;
+
+  --h5-size: 17px;
+  --h5-weight: 600;
+
+  --h6-size: 14px;
+  --h6-weight: 600;
+
+  --text-size: 18px;
+  --text-weight: 400;
+
+  --lead-size: 20px;
+  --lead-weight: 400;
+}
+
+/* Base text */
+body {
+  font-family: var(--font-sans);
+}
+
+/* Headings */
+h1 { font-size: var(--h1-size); font-weight: var(--h1-weight); line-height: 1.1; }
+h2 { font-size: var(--h2-size); font-weight: var(--h2-weight); line-height: 1.2; }
+h3 { font-size: var(--h3-size); font-weight: var(--h3-weight); line-height: 1.25; }
+h4 { font-size: var(--h4-size); font-weight: var(--h4-weight); line-height: 1.3; }
+h5 { font-size: var(--h5-size); font-weight: var(--h5-weight); line-height: 1.35; }
+h6 { font-size: var(--h6-size); font-weight: var(--h6-weight); line-height: 1.4; }
+
+/* Paragraphs/lists inside containers (override theme defaults) */
+.container p,
+.container li {
+  font-size: var(--text-size);
+  font-weight: var(--text-weight);
+  line-height: 1.2;
+}
+
+/* Lead paragraph utility */
+.lead { font-size: var(--lead-size) !important; font-weight: var(--lead-weight); line-height: 1.5; }
+
+/* Utility classes to apply heading styles without using h1–h6 tags */
+.h1 { font-size: var(--h1-size); font-weight: var(--h1-weight); line-height: 1.1; }
+.h2 { font-size: var(--h2-size); font-weight: var(--h2-weight); line-height: 1.2; }
+.h3 { font-size: var(--h3-size); font-weight: var(--h3-weight); line-height: 1.25; }
+.h4 { font-size: var(--h4-size); font-weight: var(--h4-weight); line-height: 1.3; }
+.h5 { font-size: var(--h5-size); font-weight: var(--h5-weight); line-height: 1.35; }
+.h6 { font-size: var(--h6-size); font-weight: var(--h6-weight); line-height: 1.4; }
+
+/* Weight utilities */
+.fw-300 { font-weight: 300 !important; }
+.fw-400 { font-weight: 400 !important; }
+.fw-500 { font-weight: 500 !important; }
+.fw-600 { font-weight: 600 !important; }
+.fw-700 { font-weight: 700 !important; }
+.fw-800 { font-weight: 800 !important; }
+
+/* Optional size utilities */
+.text-sm { font-size: 14px !important; }
+.text-md { font-size: 16px !important; }
+.text-lg { font-size: 20px !important; }
+
+/* ---------------------------*/
+/* ----- Publications UI ---- */
+/* ---------------------------*/
+
+.pub-list {
+  --pub-list-gap: 24px;
+  --pub-card-height: 280px; /* set once for identical card height */
+  display: block;
+  padding: 0;
+  margin-bottom: var(--pub-list-gap);
+}
+.pub-list:last-of-type { margin-bottom: 0; }
+
+/* Reliable vertical spacing between cards */
+.pub-list > .pub-card { margin-bottom: var(--pub-list-gap); }
+.pub-list > .pub-card:last-child { margin-bottom: 10px; }
+
+.pub-card {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.22);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  height: var(--pub-card-height);
+}
+
+.pub-media {
+  flex: 0 0 30%;
+  align-self: stretch;
+  background: rgba(0,0,0,0.1);
+}
+
+.pub-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pub-body {
+  flex: 1 1 75%;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.pub-body p { padding: 0; margin: 0; }
+.pub-card .pub-body p:first-of-type { margin-top: 0; }
+
+.pub-title {
+  font-size: var(--h4-size);
+  font-weight: var(--h4-weight);
+  line-height: 1.25;
+  margin: 0;
+  text-align: center;
+  padding: 0;
+}
+
+.pub-authors {
+  font-size: var(--text-size);
+  line-height: 1.4;
+  opacity: 0.95;
+  margin: 0;
+  text-align: center;
+}
+
+.pub-venue {
+  font-size: var(--text-size);
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+.pub-abstract {
+  font-size: var(--text-size);
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  justify-content: center;
+}
+
+.pub-links a {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 767px) {
+  .pub-card { flex-direction: column; }
+  .pub-media { flex-basis: auto; width: 100%; height: 200px; }
+  .pub-card { height: auto; }
+}
+
+/* --- Unified spacing for publication blocks --- */
+.pub-card { --pub-gap: 12px; }
+
+/* Reset margins so sibling gaps are controlled uniformly */
+.pub-title,
+.pub-authors,
+.pub-venue,
+.pub-abstract { margin: 0; }
+
+/* Apply same top gap for title→authors, venue→abstract, abstract→links */
+.pub-title + .pub-authors,
+.pub-venue + .pub-abstract,
+.pub-abstract + .pub-links { margin-top: var(--pub-gap); }
+
+/* Accent highlight that uses the current section background color */
+.highlight-accent {
+  color: var(--section-fg);
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, var(--section-bg) 0%);
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
