@@ -465,23 +465,34 @@ h6 { font-size: var(--h6-size); font-weight: var(--h6-weight); line-height: 1.4;
   background: rgba(0,0,0,0.22);
   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
   height: var(--pub-card-height);
+  /* Keep media width constant; let text grow when container widens */
+  --pub-media-width: calc(var(--pub-card-height) * 16 / 9);
 }
 
 .pub-media {
-  flex: 0 0 30%;
-  align-self: stretch;
+  position: relative;
+  /* Fix media column width; keeps figure size unchanged */
+  flex: 0 0 var(--pub-media-width);
+  width: var(--pub-media-width);
+  /* Maintain 16:9 aspect ratio */
+  aspect-ratio: 16 / 9;
+
+  /* optional background for empty slots */
   background: rgba(0,0,0,0.1);
 }
 
 .pub-media img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
+  object-fit: cover; /* crop instead of stretching */
 }
 
 .pub-body {
-  flex: 1 1 75%;
+  /* Allow text column to take remaining space */
+  flex: 1 1 auto;
   padding: 16px 20px;
   display: flex;
   flex-direction: column;
@@ -522,7 +533,7 @@ h6 { font-size: var(--h6-size); font-weight: var(--h6-weight); line-height: 1.4;
   text-align: center;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
 
