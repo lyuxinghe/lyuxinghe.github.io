@@ -26,8 +26,8 @@ fa-icon: book
     </div>
     <div class="pub-body">
       <h3 class="pub-title">Disentangled Point Diffusion for Precise Object Placement</h3>
-      <p class="pub-authors"><strong><span class="highlight-accent">Lyuxing He</span></strong>, Eric Cai, Shobhit Aggarwal, David Held</p>
-      <p class="pub-venue"><strong><a href="https://2026.ieee-icra.org/">ICRA, 2026 (Under Review)</a></strong></p>
+      <p class="pub-authors"><strong><span class="highlight-accent">Lyuxing He</span></strong>, Eric Cai, Shobhit Aggarwal, Jianjun Wang, David Held</p>
+      <p class="pub-venue"><strong><a href="https://2026.ieee-icra.org/">ICRA, 2026</a></strong></p>
       <p class="pub-abstract">A hierarchical object-centric point diffusion framework that combines dense GMM global initialization with disentangled geometry and frame diffusion to deliver SOTA precision, multi-modal coverage, and generalization in both rigid and non-rigid placement tasks.</p>
       <div class="pub-links">
         <a href="https://drive.google.com/file/d/1-U_8yWhmd_sK5707lJGrtl5bJKBdSC6g/view?usp=sharing">Paper</a>
