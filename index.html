@@ -3,16 +3,46 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
+  {% assign homepage_url = '/' | absolute_url %}
+  {% assign profile_image_url = site.profile_image | absolute_url %}
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ site.title }}</title>
 	<meta name="keywords" content="{{ site.keywords }}">
 	<meta name="description" content="{{ site.description }}">
+  <meta name="robots" content="max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:url" content="{{ homepage_url }}">
+  <meta property="og:image" content="{{ profile_image_url }}">
+  <meta property="og:image:alt" content="Portrait of Lyuxing He">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ site.title }}">
+  <meta name="twitter:description" content="{{ site.description }}">
+  <meta name="twitter:image" content="{{ profile_image_url }}">
+  <meta name="twitter:image:alt" content="Portrait of Lyuxing He">
   <link rel="stylesheet" href="combo.css">
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-  {% if site.favicon %}<link rel="shortcut icon" href="{{ site.favicon }}" type="image/x-icon">{% endif %}
-	{% if site.touch_icon %}<link rel="apple-touch-icon" href="{{ site.touch_icon }}">{% endif %}
+  {% if site.favicon %}<link rel="shortcut icon" href="{{ site.favicon | relative_url }}" type="image/x-icon">{% endif %}
+	{% if site.touch_icon %}<link rel="apple-touch-icon" href="{{ site.touch_icon | relative_url }}">{% endif %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": {{ site.title | jsonify }},
+      "url": {{ homepage_url | jsonify }},
+      "image": {{ profile_image_url | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "sameAs": [
+        "https://www.linkedin.com/in/lyuxing-he-2b9ba1149//",
+        "https://www.youtube.com/@lyuxinghe630",
+        "https://github.com/lyuxinghe",
+        "https://scholar.google.com/citations?hl=zh-CN&user=dn8TqLEAAAAJ"
+      ]
+    }
+  </script>
 </head>
 <body>
   <div id="main">

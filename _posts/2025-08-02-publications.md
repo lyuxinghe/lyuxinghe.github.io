@@ -30,8 +30,7 @@ fa-icon: book
       <p class="pub-venue"><strong><a href="https://2026.ieee-icra.org/">ICRA, 2026</a></strong></p>
       <p class="pub-abstract">A hierarchical object-centric point diffusion framework that combines dense GMM global initialization with disentangled geometry and frame diffusion to deliver SOTA precision, multi-modal coverage, and generalization in both rigid and non-rigid placement tasks.</p>
       <div class="pub-links">
-        <a href="https://drive.google.com/file/d/1-U_8yWhmd_sK5707lJGrtl5bJKBdSC6g/view?usp=sharing">Paper</a>
-        <a href="https://drive.google.com/file/d/1iboxVoBU9fVdU4I7jCOcRg-wx_m88yPz/view?usp=sharing">Supplement</a>
+        <a href="https://arxiv.org/abs/2604.11793">Paper</a>
         <a href="https://3dgp-icra2026.github.io/">Website</a>
         <a href="#" onclick="return false;" style="pointer-events: none; color: black; text-decoration: none;">Code (coming soon)</a>
       </div>
@@ -56,5 +55,4 @@ fa-icon: book
     </div>
   </article>
 </div>
-
 
