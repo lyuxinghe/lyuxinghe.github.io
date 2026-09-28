@@ -22,8 +22,10 @@ style: center
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Center the subject while preserving the photo's full height. */
   object-position: 62% center;
+  /* Center the subject and trim excess headroom in the landscape photo. */
+  transform: scale(1.18);
+  transform-origin: center bottom;
   display: block;
 }
 
@@ -37,12 +39,11 @@ style: center
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
   flex-wrap: wrap;
   margin-top: 28px;
 }
-.intro-links a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
-.intro-links img { height: 44px; width: auto; display: block; }
+.intro-links img { height: 32px; }
 </style>
 
 <!-- Centered heading with small image -->
@@ -64,7 +65,7 @@ style: center
   <div class="right">
     <p>I am a Master student at <a href="https://www.ri.cmu.edu/">Carnegie Mellon University (CMU) Robotics Institute</a> and a member of <a href="https://r-pad.github.io/">Robots Perceiving and Doing (RPAD) Lab</a>, advised by <a href="https://davheld.github.io/">Prof. David Held</a>.</p>
 
-    <p>My research lies at the intersection of Computer Vision and Robot Learning. I'm particularly interested in developing methods that enable robots to acquire generalizable manipulation skills from visual demonstrations through geometric and spatial reasoning.</p>
+    <p>My research lies at the intersection of Computer Vision and Robot Learning. I'm particularly interested in developing methods that enable robots to acquire generalizable manipulation skills from visual demonstrations through geometric reasoning.</p>
 
     <p>Previously, I obtained my Bachelor of Science in Electrical Engineering with a minor in Computer Science from <a href="https://illinois.edu/">University of Illinois at Urbana-Champaign</a> with <a href="https://cee.illinois.edu/academics/undergraduate-programs/undergraduate-honors-programs#:~:text=Highest%20Honors%20may%20be%20awarded,academic%20and%2For%20professional%20nature.">Highest Honors</a>. During my undergraduate studies, I joined the <a href="https://thehcalab.web.illinois.edu/">Human-Centered Autonomy Lab</a> as a research assistant, advised by Professor <a href="https://krdc.web.illinois.edu/">Katie Driggs-Campbell</a>. I also joined <a href="https://www.cuhk.edu.hk/english/index.html">The Chinese University of Hong Kong</a> and the <a href="https://www.labren.org/mm/">Ren Lab</a> as a summer visiting scholar, advised by Professor <a href="https://www.ee.cuhk.edu.hk/en-gb/people/academic-staff/professors/prof-ren-hongliang">Hongliang Ren</a>.</p>
 
@@ -75,11 +76,12 @@ style: center
       I am applying for Fall 2026 Ph.D. positions. Please drop me an email if you are interested in my research!
     </h4>
     -->
-    <div class="intro-links">
-      <a href="https://www.linkedin.com/in/lyuxinghe/"><img src="{{ 'img/icons/linkedin.png' | relative_url }}" alt="LinkedIn"></a>
-      <a href="https://www.youtube.com/@lyuxinghe630"><img src="{{ 'img/icons/youtube.png' | relative_url }}" alt="YouTube"></a>
-      <a href="https://github.com/lyuxinghe"><img src="{{ 'img/icons/github.png' | relative_url }}" alt="GitHub"></a>
-      <a href="https://scholar.google.com/citations?user=MFJ3LaoAAAAJ&amp;hl=en&amp;oi=sra"><img src="{{ 'img/icons/gscholar.png' | relative_url }}" alt="Google Scholar"></a>
-    </div>
   </div>
+</div>
+
+<div class="intro-links">
+  <a href="https://www.linkedin.com/in/lyuxinghe/"><img src="{{ 'img/icons/linkedin.png' | relative_url }}" alt="LinkedIn"></a>
+  <a href="https://www.youtube.com/@lyuxinghe630"><img src="{{ 'img/icons/youtube.png' | relative_url }}" alt="YouTube"></a>
+  <a href="https://github.com/lyuxinghe"><img src="{{ 'img/icons/github.png' | relative_url }}" alt="GitHub"></a>
+  <a href="https://scholar.google.com/citations?user=MFJ3LaoAAAAJ&amp;hl=en&amp;oi=sra"><img src="{{ 'img/icons/gscholar.png' | relative_url }}" alt="Google Scholar"></a>
 </div>
