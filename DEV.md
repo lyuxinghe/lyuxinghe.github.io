@@ -1,82 +1,65 @@
-# Development Guide
+# Local development
 
-This site is a Jekyll-based personal website.
+This personal website uses Jekyll. Run all commands from the repository root.
+The setup supports this Mac's Ruby 2.6.10 and pins Jekyll to the previously
+used version, 3.9.5. Exact dependencies are recorded in `Gemfile.lock`.
 
-The steps below were verified on macOS with:
+## First-time setup
 
-- Ruby `2.6.10`
-- Jekyll `3.9.5`
-- `kramdown-parser-gfm` `1.1.0`
-
-This repo does not include a `Gemfile`, so the setup below installs the required gems into your user gem directory.
-
-## 1. One-time installation
-
-Check the Ruby version:
+Prerequisites: Ruby, RubyGems, Make, and the Xcode command-line build tools.
+These are already available on this Mac.
 
 ```bash
-ruby -v
+make setup
 ```
 
-Install the gems needed to build and serve the site:
+This downloads Bundler 2.4.22 into `.bundle/bootstrap/` and installs the site
+dependencies in `vendor/bundle/`. It does not require `sudo` or changes to
+your shell configuration. Both directories are ignored by Git.
+
+Run `make setup` again after pulling changes to `Gemfile` or `Gemfile.lock`.
+
+## Preview and edit
 
 ```bash
-gem install --user-install ffi -v 1.17.4 --platform ruby --no-document
-gem install --user-install public_suffix -v 5.1.1 --no-document
-gem install --user-install jekyll -v 3.9.5 --no-document
-gem install --user-install kramdown-parser-gfm --no-document
+make dev
 ```
 
-Add the user gem binaries to your `PATH` for the current shell:
+Open <http://localhost:4000>. Jekyll watches source files, rebuilds the site,
+and reloads the browser after edits. Keep the terminal running while you work;
+press `Ctrl-C` to stop it. Restart it after changing `_config.yml`.
+
+| What to update | File |
+| --- | --- |
+| Bio and social links | `_posts/2025-08-01-intro.md` |
+| Publications | `_posts/2025-08-02-publications.md` |
+| Projects | `_posts/2025-08-03-projects.md` |
+| Title, description, and profile image path | `_config.yml` |
+| Main page layout | `index.html` |
+| Styles | `_includes/css/main.css` (combined through `combo.css`) |
+| Interactions | `site.js` |
+| Images and video | `img/` |
+| Footer | `_includes/footer.md` |
+
+The sample posts dated `9999` stay hidden because they are future-dated.
+Edit the source files above; `_site/` is generated output.
+
+## Build the static site
 
 ```bash
-export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
+make build
 ```
 
-To make that persistent in `zsh`, add this line to `~/.zshrc`:
+The generated site is written to `_site/`, which is ignored by Git.
+These commands only build and serve locally; publishing is a separate step.
 
-```bash
-export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
-```
+## Troubleshooting
 
-Then reload your shell:
+- Missing Bundler or gems: run `make setup` from the repository root.
+- Port 4000 already in use: stop the existing preview with `Ctrl-C` first.
+- Configuration changes not appearing: restart `make dev`.
+- macOS's older RubyGems can print an upgrade warning. Bundler is explicitly
+  pinned to a compatible version; no system RubyGems upgrade is needed.
 
-```bash
-source ~/.zshrc
-```
-
-## 2. Build the site
-
-From the repo root:
-
-```bash
-cd /Users/lyuxinghe/Desktop/code/websites/personal
-export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
-jekyll build
-```
-
-The generated static site will be written to `_site/`.
-
-## 3. Run the site locally
-
-From the repo root:
-
-```bash
-cd /Users/lyuxinghe/Desktop/code/websites/personal
-export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
-jekyll serve --host 127.0.0.1 --port 4000
-```
-
-Then open:
-
-```text
-http://127.0.0.1:4000
-```
-
-Stop the server with `Ctrl-C`.
-
-## 4. Quick troubleshooting
-
-- If `jekyll` is not found, your `PATH` is missing `"$HOME/.gem/ruby/2.6.0/bin"`.
-- If you change `_config.yml`, restart the Jekyll server.
-- If you only want to regenerate static files without starting a server, use `jekyll build`.
+See the [Jekyll command-line documentation](https://jekyllrb.com/docs/usage/)
+for additional build and serve options.

@@ -1,3 +1,6 @@
+For local setup and editing this personal website, see [DEV.md](DEV.md).
+Run `make setup` once, then `make dev` to preview at <http://localhost:4000>.
+
 Fancy jekyll powered single page site
 ======================
 
