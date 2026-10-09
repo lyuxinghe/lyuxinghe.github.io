@@ -1,0 +1,35 @@
+# AutoLug: ECE 445 proposal dated February 7, 2023:
+# https://courses.grainger.illinois.edu/ece445/getfile.asp?id=21164
+# IHDS: Schleife Group highlight dated August 29, 2022.
+- id: ihds
+  sort_date: 202208
+  year: '2022'
+  title: Interactive Holographic Display System (IHDS)
+  subtitle: NCSA · Research project
+  cover: img/cards/ihds.jpg
+  video: img/cards/ihds.mp4
+  authors: '<strong><span class="highlight-accent">Lyuxing He</span></strong>'
+  venue: The National Center for Supercomputing Applications (NCSA)
+  venue_url: https://www.ncsa.illinois.edu/
+  description: An interactive holographic display system that uses gesture control to visualize volumetric models (chemical’s electron density, etc.).
+  links:
+    - label: Website
+      url: https://schleife.matse.illinois.edu/2022/08/29/interactive-holographic-display-system-ihds/index.html
+    - label: Code
+      url: https://github.com/lyuxinghe/IHDS
+- id: autolug
+  sort_date: 202302
+  year: '2023'
+  title: Auto-following Luggage Platform (AutoLug)
+  subtitle: UIUC · Capstone project
+  cover: img/cards/autolug.jpg
+  image: img/projects/autolog.png
+  authors: '<strong><span class="highlight-accent">Lyuxing He</span></strong>, David Chen'
+  venue: Undergrad Capstone Project
+  venue_url: https://www.ncsa.illinois.edu/
+  description: An auto-following luggage platform (AutoLug) that integrates owner registration and onboard vision-based identification to enable safe, collision-free following, offering excellent affordability, versatility across luggage types, and reusable platform functionality compared to conventional smart suitcases.
+  links:
+    - label: Website
+      url: https://courses.grainger.illinois.edu/ece445/hall-of-fame.asp
+    - label: Code
+      url: https://github.com/lyuxinghe/AutoLug

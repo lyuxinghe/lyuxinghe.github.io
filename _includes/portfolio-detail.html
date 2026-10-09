@@ -1,0 +1,25 @@
+<div class="archive-publication">
+  <div class="archive-detail-media">
+    {% if include.item.video %}
+    <video muted loop playsinline controls preload="none" poster="{{ include.item.cover | relative_url }}" aria-label="{{ include.item.title | escape }} video">
+      <source src="{{ include.item.video | relative_url }}" type="video/mp4">
+    </video>
+    {% else %}
+    <img src="{{ include.item.image | relative_url }}" alt="{{ include.item.title | escape }}" loading="lazy">
+    {% endif %}
+  </div>
+  <div class="archive-detail-body">
+    {% assign has_venue = false %}
+    {% if include.item.venue and include.item.venue != empty %}{% assign has_venue = true %}{% endif %}
+    {% capture venue_label %}{{ include.item.venue }}{% if include.item.venue_location %} · {{ include.item.venue_location }}{% endif %}{% endcapture %}
+    {% if include.kind == 'publications' or has_venue %}
+    <p class="archive-detail-meta">{% if include.kind == 'publications' %}<span class="archive-detail-year">{{ include.item.year }}</span>{% if has_venue %}, {% endif %}{% endif %}{% if has_venue %}{% if include.item.venue_url %}<a class="archive-venue" href="{{ include.item.venue_url }}">{{ venue_label }}</a>{% else %}<span class="archive-venue">{{ venue_label }}</span>{% endif %}{% endif %}</p>
+    {% endif %}
+    <h4>{{ include.item.title }}</h4>
+    <p class="archive-authors">{{ include.item.authors }}</p>
+    <p class="archive-description">{{ include.item.description }}</p>
+    <div class="archive-links">
+      {% for link in include.item.links %}<a href="{{ link.url }}">{{ link.label }} <span aria-hidden="true">↗</span></a>{% endfor %}
+    </div>
+  </div>
+</div>

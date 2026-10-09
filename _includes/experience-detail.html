@@ -1,0 +1,21 @@
+<div class="archive-experience">
+  <header class="archive-experience-heading">
+    <div><p class="archive-detail-meta">{{ include.item.subtitle }}{% if include.item.location %} <span aria-hidden="true">·</span> {{ include.item.location }}{% endif %}</p><h4>{{ include.item.name }}</h4></div>
+    <p class="archive-experience-years">{{ include.item.years }}</p>
+  </header>
+  {% if include.item.qualification %}
+  <div class="archive-qualification"><h5>{{ include.item.qualification }}</h5><p>{{ include.item.qualification_dates }}{% if include.item.distinction %}<br>{{ include.item.distinction }}{% endif %}</p></div>
+  {% endif %}
+  <ol class="archive-roles">
+    {% for role in include.item.roles %}
+    <li class="archive-role">
+      <p class="archive-role-date">{{ role.dates }}</p>
+      <div class="archive-role-body"><h5>{{ role.title }}{% if role.current %}<span class="archive-current">Current</span>{% endif %}</h5>
+      {% if role.team %}<p class="archive-team"><em>{{ role.team }}</em>{% if role.advisor %} · {{ role.advisor }}{% endif %}</p>{% endif %}
+      {% if role.description_paragraphs %}
+        {% for paragraph in role.description_paragraphs %}<p class="archive-role-description">{{ paragraph }}</p>{% endfor %}
+      {% elsif role.description %}<p class="archive-role-description">{{ role.description }}</p>{% endif %}</div>
+    </li>
+    {% endfor %}
+  </ol>
+</div>

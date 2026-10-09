@@ -1,0 +1,181 @@
+# Titles, dates, and role descriptions checked against LinkedIn on 2026-10-08:
+# https://www.linkedin.com/in/lyuxinghe/details/experience/
+# https://www.linkedin.com/in/lyuxinghe/details/education/
+# SafeWorld's founding-role summary also uses Lyuxing's launch post:
+# https://www.linkedin.com/feed/update/urn:li:activity:7512890423862980608/
+# Degree honors, advisors, and the CS minor are from the existing site bio.
+# ParticleSplat's description is based on its preprint:
+# https://arxiv.org/abs/2609.19463
+# Additional professor/mentor references:
+# https://mitras.ece.illinois.edu/group.html
+# https://www.ncsa.illinois.edu/2022/06/03/spin-interns-garner-achievements-success-over-academic-year/
+lanes:
+  - id: education
+    title: Education & Research
+    organizations:
+      - id: cmu
+        sort_date: 202408
+        card_date: '2024'
+        subtitle: Education & Research
+        label: CMU
+        name: Carnegie Mellon University
+        years: Aug 2024 – May 2026
+        logo: img/experience/cmu.jpg
+        qualification: M.S. in Artificial Intelligence
+        qualification_dates: Aug 2024 – Dec 2025
+        roles:
+          - title: Research Assistant
+            team: Robots Perceiving and Doing Lab (R-PAD)
+            advisor: Prof. David Held
+            dates: Aug 2024 – May 2026
+            description_paragraphs:
+              - >-
+                Developed a hierarchical, object-centric point diffusion framework
+                combining dense Gaussian mixture model (GMM) global initialization
+                with disentangled geometry and frame diffusion, achieving
+                state-of-the-art placement precision, multimodal coverage, and
+                generalization across rigid and non-rigid placement tasks. This work
+                was accepted to ICRA 2026.
+              - >-
+                Developed ParticleSplat, a self-supervised, object-centric 3D
+                representation learning framework that maps multi-view observations
+                into compact latent particles and particle-aligned Gaussian splats.
+                Trained through novel-view synthesis without segmentation
+                supervision, the framework enables 3D object decomposition and
+                controllable scene editing, while improving downstream robotic
+                manipulation policies. This work is available as a preprint.
+      - id: cuhk
+        sort_date: 202306
+        card_date: '2023'
+        subtitle: Research
+        label: CUHK
+        name: The Chinese University of Hong Kong
+        years: Jun 2023 – Dec 2023
+        logo: img/experience/cuhk.jpg
+        roles:
+          - title: Undergraduate Researcher
+            team: Ren Lab
+            advisor: Prof. Hongliang Ren
+            dates: Jun 2023 – Dec 2023
+            description: >-
+              Built and deployed a semi-autonomous, ROS-controlled data collection
+              system using an Olympus duodenoscope, producing the first in-vivo,
+              in-cavity gastrointestinal dataset with complete ground truth for
+              dense 3D reconstruction. Designed a monocular NeRF framework that
+              separates diffuse and specular radiance to handle near-field
+              lighting, fluids, and exposure changes in endoscopy. This work was
+              published in Handbook of Robotic Surgery.
+      - id: uiuc
+        sort_date: 201908
+        card_date: '2019'
+        subtitle: Education & Research
+        label: UIUC
+        name: University of Illinois Urbana-Champaign
+        years: Aug 2019 – Dec 2023
+        logo: img/experience/uiuc.jpg
+        qualification: B.S. in Electrical Engineering
+        qualification_dates: Aug 2019 – Dec 2023
+        distinction: Computer Science minor · Highest Honors
+        roles:
+          - title: Undergraduate Researcher
+            team: Human-Centered Autonomy Lab
+            advisor: Prof. Katie Driggs-Campbell
+            dates: Aug 2022 – Dec 2023
+            description: >-
+              Contributed to a marginalized importance sampling framework that
+              combines real-world offline data with imperfect simulators for
+              stable off-environment policy evaluation. The framework achieved
+              state-of-the-art results in Sim2Sim benchmarks and was validated
+              through Sim2Real experiments on a Kinova robotic arm.
+          - title: Research Assistant
+            team: Mitra Research Group
+            advisor: Prof. Sayan Mitra
+            dates: May 2022 – Aug 2022
+            description: >-
+              Developed a web-based debugger for Verse, the group's autonomous-system
+              verification tool, to support the design and analysis of autonomous
+              vehicles. Evaluated Verse on a simulated GEM vehicle in Gazebo and
+              on a physical GEM vehicle.
+          - title: Undergraduate Researcher
+            team: National Center for Supercomputing Applications
+            advisor: Prof. André Schleife
+            dates: Aug 2021 – Aug 2022
+            description: >-
+              Built volumetric models from raw electron-density data and an
+              interactive holographic rendering system controlled by remote hand
+              gestures. Tuned the system for classroom teaching and outreach
+              demonstrations to make materials science concepts easier to
+              understand. Received NCSA recognition for outstanding undergraduate
+              research.
+          - title: Lead Electrical Engineer
+            team: Illini Air Shuttle
+            dates: Aug 2021 – May 2023
+            description: >-
+              Led electrical engineering work for student-built, small-scale eVTOL
+              prototypes. Organized discussions on design constraints and thrust
+              and weight estimates, and coordinated PCB design, 3D-printed
+              component assembly, electronics soldering, and vertical-takeoff
+              testing. Taught seminars on robot control systems and computer
+              vision using the first working subscale model.
+  - id: work
+    title: Industry
+    organizations:
+      - id: safeworld
+        sort_date: 202602
+        card_date: '2026'
+        subtitle: Industry
+        card_subtitle: Senior Machine Learning Engineer
+        label: SafeWorld
+        name: SafeWorld
+        years: Feb 2026 – present
+        logo: img/experience/safeworld.jpg
+        location: Palo Alto, California
+        roles:
+          - title: Senior Machine Learning Engineer
+            dates: Oct 2026 – present
+            current: true
+          - title: Founding Machine Learning Engineer
+            dates: Feb 2026 – Aug 2026
+            description: >-
+              Designed and built SafeWorld’s first human behavior modeling system
+              from the ground up, enabling customers to simulate robot–human
+              interactions and uncover risks before deployment. Contributed to
+              AI-powered simulation and safety testing systems that help make
+              robots safe around people.
+      - id: a4x
+        sort_date: 202402
+        card_date: '2024'
+        subtitle: Industry
+        card_subtitle: Research Intern
+        label: A4x AIoT
+        name: A4x AIoT
+        years: Feb 2024 – Aug 2024
+        logo: img/experience/a4x.jpg
+        location: Hangzhou, China
+        roles:
+          - title: Research Intern
+            dates: Feb 2024 – Aug 2024
+            description: >-
+              Developed a Real2Sim framework using 4D Gaussian splatting and feature
+              splatting to transform in-the-wild videos into simulation
+              environments. Generated grounded reward functions to support
+              scalable training of robotic manipulation foundation models beyond
+              traditional human-demonstration pipelines.
+      - id: makeblock
+        sort_date: 202102
+        card_date: '2021'
+        subtitle: Industry
+        card_subtitle: Electrical Engineering Intern
+        label: Makeblock
+        name: Makeblock
+        years: Feb 2021 – Jun 2021
+        logo: img/experience/makeblock.jpg
+        location: Shenzhen, China
+        roles:
+          - title: Electrical Engineering Intern
+            dates: Feb 2021 – Jun 2021
+            description: >-
+              Helped automate scoring for the MakeX Robotics Competition and led
+              MakeX Starter competition design under the department manager's
+              supervision. Assisted with parameter validation and CAD work for
+              CyberPi microcontrollers, sensors, and other Makeblock electronics.

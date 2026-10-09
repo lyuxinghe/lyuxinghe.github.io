@@ -1,0 +1,32 @@
+{% assign education = site.data.experience.lanes[0].organizations %}
+{% assign industry = site.data.experience.lanes[1].organizations %}
+{% assign latest_organization = education | concat: industry | sort: 'sort_date' | last %}
+<div class="card-deck card-deck--experience" data-card-deck>
+  <div data-deck-tabs aria-label="Education, research, and industry">
+    {% for lane in site.data.experience.lanes %}
+    {% assign deck_id = 'experience-' | append: lane.id %}
+    {% assign lane_items = lane.organizations | sort: 'sort_date' %}
+    <div class="card-deck-row">
+      <div class="card-deck-fan" aria-label="{{ lane.title }}">
+        {% for item in lane_items %}
+        {% assign is_latest = false %}
+        {% if item.id == latest_organization.id %}{% assign is_latest = true %}{% endif %}
+        {% include archive-card.html item=item id=deck_id latest=is_latest %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="card-deck-details">
+    {% for lane in site.data.experience.lanes %}
+    {% assign deck_id = 'experience-' | append: lane.id %}
+    {% assign lane_items = lane.organizations | sort: 'sort_date' %}
+    {% for item in lane_items %}
+    <article class="archive-detail" id="{{ deck_id }}-detail-{{ item.id }}" data-deck-panel aria-labelledby="{{ deck_id }}-card-{{ item.id }}">
+      {% include experience-detail.html item=item %}
+    </article>
+    {% endfor %}
+    {% endfor %}
+  </div>
+  <p class="card-deck-profile"><a href="https://www.linkedin.com/in/lyuxinghe/">More on LinkedIn <span aria-hidden="true">↗</span></a></p>
+</div>

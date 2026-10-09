@@ -1,0 +1,21 @@
+{% assign deck_items = include.items | sort: 'sort_date' %}
+<div class="card-deck card-deck--{{ include.kind }}" data-card-deck>
+  <h3 class="card-deck-heading" id="{{ include.id }}-heading">{{ include.heading }}</h3>
+  <div class="card-deck-fan" aria-labelledby="{{ include.id }}-heading">
+    {% for item in deck_items %}
+    {% include archive-card.html item=item id=include.id latest=forloop.last %}
+    {% endfor %}
+  </div>
+  <div class="card-deck-details">
+    {% for item in deck_items %}
+    <article class="archive-detail" id="{{ include.id }}-detail-{{ item.id }}" data-deck-panel aria-labelledby="{{ include.id }}-card-{{ item.id }}">
+      {% if include.kind == 'experience' %}
+        {% include experience-detail.html item=item %}
+      {% else %}
+        {% include portfolio-detail.html item=item kind=include.kind %}
+      {% endif %}
+    </article>
+    {% endfor %}
+  </div>
+  {% if include.show_profile %}<p class="card-deck-profile"><a href="https://www.linkedin.com/in/lyuxinghe/">More on LinkedIn <span aria-hidden="true">↗</span></a></p>{% endif %}
+</div>

@@ -1,0 +1,157 @@
+/* Shared archive cards; all rules are scoped so the Home design stays intact. */
+.card-deck {
+  --archive-paper: #f8f8f8;
+  --archive-ink: #111111;
+  --archive-rule: rgba(17, 17, 17, 0.2);
+  --card-width: 270px;
+  --card-height: 370px;
+  color: var(--section-fg);
+  font-family: var(--font-sans);
+}
+.card-deck--experience { --card-height: 280px; }
+.card-deck--experience.is-enhanced .card-deck-row + .card-deck-row { margin-top: -104px; }
+.card-deck .card-deck-heading { margin-bottom: 32px; }
+.card-deck .card-deck-fan { display: none; }
+.card-deck.is-enhanced .card-deck-fan {
+  display: block;
+  position: relative;
+  height: calc(var(--card-height) + 126px);
+  width: 100%;
+  max-width: 1160px;
+  margin: 0 auto;
+  isolation: isolate;
+}
+.card-deck .archive-card {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 68px;
+  left: var(--card-left, 50%);
+  z-index: var(--card-layer, 1);
+  width: var(--card-width);
+  height: var(--card-height);
+  margin: 0;
+  padding: 18px;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: 12px;
+  background: var(--archive-paper);
+  color: var(--archive-ink);
+  box-shadow: 0 14px 24px -12px rgba(0, 0, 0, 0.38);
+  text-align: left;
+  text-shadow: none;
+  font-family: inherit;
+  white-space: normal;
+  cursor: pointer;
+  transform-origin: 50% 100%;
+  transform: translate(-50%, var(--card-drop, 0px)) rotate(var(--card-angle, 0deg));
+  transition: transform 420ms cubic-bezier(.22, .8, .24, 1), box-shadow 250ms, border-color 250ms;
+  -webkit-tap-highlight-color: transparent;
+}
+.card-deck .archive-card[aria-selected="true"] {
+  z-index: 20;
+  border-color: var(--archive-ink);
+  transform: translate(-50%, calc(var(--card-drop, 0px) - 26px)) rotate(0deg);
+  box-shadow: 0 24px 32px -16px rgba(0, 0, 0, 0.42);
+}
+.card-deck .archive-card:focus-visible {
+  outline: 3px solid var(--archive-ink);
+  outline-offset: 5px;
+}
+.card-deck .archive-card-media {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  flex: none;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #fff;
+  margin-bottom: 18px;
+}
+.card-deck .archive-card-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.card-deck .archive-card--logo .archive-card-media { background: transparent; justify-items: start; }
+.card-deck .archive-card--logo .archive-card-media img { width: 64px; height: 64px; object-fit: contain; border-radius: 50%; }
+.card-deck .archive-card-year { display: block; font-size: var(--h3-size); font-weight: var(--h3-weight); line-height: 1.1; margin-bottom: 15px; }
+.card-deck .archive-card-title { display: block; font-size: var(--h5-size); font-weight: var(--h3-weight); line-height: 1.3; overflow-wrap: anywhere; }
+.card-deck .archive-card-subtitle { display: block; font-size: var(--h6-size); font-weight: var(--text-weight); line-height: 1.4; margin-top: 8px; }
+.card-deck .archive-detail {
+  padding: 32px 0;
+  border-top: 1px solid var(--archive-rule);
+  scroll-margin-top: 110px;
+}
+.card-deck.is-enhanced .archive-detail { display: none; }
+.card-deck.is-enhanced .archive-detail.is-active { display: block; }
+.card-deck .archive-detail h4 {
+  text-align: left;
+  padding: 0;
+  margin: 0 0 16px;
+  font-size: var(--h3-size);
+  font-weight: var(--h3-weight);
+  line-height: 1.25;
+}
+.card-deck .archive-detail p { padding: 0; margin: 0; line-height: 1.5; }
+.card-deck .archive-detail .archive-detail-meta { font-size: var(--h4-size); font-weight: var(--h4-weight); margin: 0 0 16px; }
+.card-deck--publications .archive-detail-meta .archive-venue { text-decoration: underline; }
+.card-deck--publications .archive-detail-body { min-width: 0; }
+.card-deck .archive-publication { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); align-items: start; gap: 36px; }
+.card-deck .archive-detail-media { overflow: hidden; border-radius: 12px; background: var(--archive-paper); box-shadow: 0 4px 16px rgba(0,0,0,.15); }
+.card-deck .archive-detail-media img,
+.card-deck .archive-detail-media video { display: block; width: 100%; height: auto; aspect-ratio: 16/9; object-fit: contain; }
+.card-deck .archive-detail .archive-authors { font-size: var(--h5-size); margin-bottom: 16px; }
+.card-deck .archive-detail .archive-description { font-size: var(--text-size); }
+.card-deck .archive-links { display: flex; gap: 12px 24px; flex-wrap: wrap; margin-top: 22px; }
+.card-deck .archive-links a { font-size: var(--h5-size); font-weight: var(--h5-weight); text-decoration: none; border-bottom: 1px solid currentColor; }
+.card-deck .archive-experience { max-width: 900px; margin: 0 auto; }
+.card-deck .archive-experience-heading { display: flex; justify-content: space-between; align-items: start; gap: 24px; }
+.card-deck .archive-experience-heading h4 { font-size: var(--h2-size); }
+.card-deck .archive-detail .archive-experience-years { flex: none; font-size: var(--h6-size); }
+.card-deck .archive-qualification { border-top: 1px solid var(--archive-rule); border-bottom: 1px solid var(--archive-rule); padding: 18px 0; margin-top: 12px; }
+.card-deck .archive-qualification h5 { margin: 0 0 7px; font-size: var(--h5-size); font-weight: var(--h5-weight); }
+.card-deck .archive-detail .archive-qualification p { font-size: var(--h6-size); }
+.card-deck .archive-roles { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 24px; }
+.card-deck .archive-role { position: relative; display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 22px; margin: 0; padding: 0; }
+.card-deck .archive-detail .archive-role-date { font-size: var(--h6-size); padding-top: 2px; }
+.card-deck .archive-role-body { position: relative; border-left: 1px solid var(--archive-rule); padding-left: 24px; }
+.card-deck .archive-role-body::before { content: ''; position: absolute; left: -3px; top: 9px; height: 5px; width: 5px; border-radius: 50%; background: var(--section-fg); }
+.card-deck .archive-role h5 { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 8px; font-size: var(--h5-size); font-weight: var(--h5-weight); }
+.card-deck .archive-detail .archive-role-body p { font-size: var(--h5-size); }
+.card-deck .archive-detail .archive-role-description + .archive-role-description { margin-top: 16px; }
+.card-deck .archive-detail .archive-team { margin-bottom: 8px; }
+.card-deck .archive-current { font-size: 12px; font-weight: 400; padding: 2px 7px; border: 1px solid var(--archive-rule); border-radius: 4px; }
+.card-deck .card-deck-profile { margin: 24px 0 0; padding: 0; text-align: center; font-size: var(--h6-size); }
+.card-deck:not(.is-enhanced) .archive-detail + .archive-detail { margin-top: 36px; }
+
+@media (max-width: 900px) {
+  .card-deck .archive-publication { grid-template-columns: 1fr; gap: 24px; }
+  .card-deck .archive-detail-media { max-width: 640px; }
+}
+@media (max-width: 767px) {
+  .card-deck { --card-height: 380px; }
+  .card-deck--experience { --card-height: 285px; }
+  .card-deck--experience.is-enhanced .card-deck-row + .card-deck-row { margin-top: -64px; }
+  .card-deck.is-enhanced .card-deck-fan {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    height: calc(var(--card-height) + 70px);
+    padding: 30px 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(17,17,17,.4) transparent;
+  }
+  .card-deck .archive-card { position: relative; top: auto; left: auto; flex: 0 0 min(270px, 78vw); width: min(270px, 78vw); transform: rotate(-2deg); scroll-snap-align: center; }
+  .card-deck .archive-card:nth-child(even) { transform: rotate(2deg); }
+  .card-deck .archive-card[aria-selected="true"] { transform: translateY(-10px) rotate(0deg); }
+  .card-deck .archive-card--logo .archive-card-media { height: 90px; }
+  .card-deck .archive-detail { padding: 24px 14px; }
+  .card-deck .archive-detail h4 { font-size: var(--h4-size); }
+  .card-deck .archive-experience-heading { flex-direction: column; gap: 4px; }
+  .card-deck .archive-role { grid-template-columns: 1fr; gap: 8px; }
+  .card-deck .archive-role-date { padding-left: 24px; }
+  .card-deck .archive-role-body { padding-left: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-deck .archive-card { transition: none; }
+}
