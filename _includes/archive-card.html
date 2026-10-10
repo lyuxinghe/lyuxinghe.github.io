@@ -1,6 +1,7 @@
 {% assign card_title = include.item.title | default: include.item.label %}
 {% assign card_cover = include.item.cover | default: include.item.logo %}
 <button class="archive-card{% if include.item.logo %} archive-card--logo{% endif %}" type="button" id="{{ include.id }}-card-{{ include.item.id }}" data-deck-card data-latest="{{ include.latest }}" aria-controls="{{ include.id }}-detail-{{ include.item.id }}">
+  <span class="archive-card-pin" aria-hidden="true"></span>
   <span class="archive-card-media"><img src="{{ card_cover | relative_url }}" alt="" loading="lazy" width="480" height="270"></span>
   <span class="archive-card-year">{{ include.item.card_date | default: include.item.year }}</span>
   <span class="archive-card-title">{{ card_title }}</span>

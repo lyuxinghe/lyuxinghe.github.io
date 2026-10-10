@@ -45,6 +45,7 @@ $.extend($.easing,
         // setup scroll listener
         $(document).scroll(function(){
             if (disableScrollFn) { return; }
+            populateDestinations(); // Card details can expand or collapse between scrolls.
             var page_height = $(window).height();
             var pos = $(this).scrollTop();
             for (i in sections) {
@@ -92,4 +93,3 @@ $(document).ready(function (){
 	});
 
 });
-
