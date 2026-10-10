@@ -1,9 +1,7 @@
-{% assign card_title = include.item.title | default: include.item.label %}
-{% assign card_cover = include.item.cover | default: include.item.logo %}
-<button class="archive-card{% if include.item.logo %} archive-card--logo{% endif %}" type="button" id="{{ include.id }}-card-{{ include.item.id }}" data-deck-card data-latest="{{ include.latest }}" aria-controls="{{ include.id }}-detail-{{ include.item.id }}">
+<button class="archive-card" type="button" id="{{ include.id }}-card-{{ include.item_id }}" data-deck-card data-latest="{{ include.latest }}" aria-controls="{{ include.id }}-detail-{{ include.item_id }}">
   <span class="archive-card-pin" aria-hidden="true"></span>
-  <span class="archive-card-media"><img src="{{ card_cover | relative_url }}" alt="" loading="lazy" width="480" height="270"></span>
-  <span class="archive-card-year">{{ include.item.card_date | default: include.item.year }}</span>
-  <span class="archive-card-title">{{ card_title }}</span>
-  <span class="archive-card-subtitle">{{ include.item.card_subtitle | default: include.item.subtitle }}</span>
+  <span class="archive-card-media" data-shape="{{ include.card.image_shape | default: 'rectangle' | escape }}"{% if include.card.image_crop %} style="--image-zoom: {{ include.card.image_crop.zoom | escape }}; --image-origin: {{ include.card.image_crop.x | escape }}% {{ include.card.image_crop.y | escape }}%;"{% endif %}><img src="{{ include.card.image | relative_url }}" alt="" loading="lazy" width="480" height="270"></span>
+  <span class="archive-card-year">{{ include.card.year | escape }}</span>
+  <span class="archive-card-title">{{ include.card.title | escape }}{% if include.card.supporting_text %}<span class="archive-card-supporting">{{ include.card.supporting_text | escape }}</span>{% endif %}</span>
+  <span class="archive-card-subtitle">{{ include.card.subtitle | escape }}</span>
 </button>

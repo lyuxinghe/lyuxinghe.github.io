@@ -1,0 +1,51 @@
+[
+  {
+    "file": "uiuc-400.jpg",
+    "source_page": "https://www.linkedin.com/school/university-of-illinois-urbana-champaign/",
+    "retrieved": "2026-10-10",
+    "width": 400,
+    "height": 400,
+    "note": "Original downloaded asset; no upscaling."
+  },
+  {
+    "file": "cuhk-400.jpg",
+    "source_page": "https://www.linkedin.com/school/13045",
+    "retrieved": "2026-10-10",
+    "width": 400,
+    "height": 400,
+    "note": "Original downloaded asset; no upscaling."
+  },
+  {
+    "file": "a4x-400.jpg",
+    "source_page": "https://www.linkedin.com/company/a4x/",
+    "retrieved": "2026-10-10",
+    "width": 400,
+    "height": 400,
+    "note": "Original downloaded asset; no upscaling."
+  },
+  {
+    "file": "makeblock-400.jpg",
+    "source_page": "https://www.linkedin.com/company/xtooleducation/",
+    "retrieved": "2026-10-10",
+    "width": 400,
+    "height": 400,
+    "note": "Original downloaded asset; no upscaling."
+  },
+  {
+    "file": "safeworld-400.jpg",
+    "source_page": "https://www.linkedin.com/company/safeworldai/",
+    "retrieved": "2026-10-10",
+    "width": 400,
+    "height": 400,
+    "note": "Original downloaded asset; no upscaling."
+  },
+  {
+    "file": "cmu-900.png",
+    "source_page": "https://brand.cmu.edu/visual-identity/carnegie-mellon-trademarks/university-logo",
+    "retrieved": "2026-10-10",
+    "width": 900,
+    "height": 900,
+    "note": "Original downloaded asset; no upscaling.",
+    "source_image": "https://live-cmu-brand.pantheonsite.io/sites/default/files/cmu-brand-files/inline-images/cmu-wordmark-square-w-on-r%201.png"
+  }
+]

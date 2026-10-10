@@ -1,13 +1,13 @@
 <div class="archive-experience">
   <header class="archive-experience-heading">
-    <div><p class="archive-detail-meta">{{ include.item.subtitle }}{% if include.item.location %} <span aria-hidden="true">·</span> {{ include.item.location }}{% endif %}</p><h4>{{ include.item.name }}</h4></div>
-    <p class="archive-experience-years">{{ include.item.years }}</p>
+    <div><p class="archive-detail-meta">{{ include.item.detail.category }}{% if include.item.detail.location %} <span aria-hidden="true">·</span> {{ include.item.detail.location }}{% endif %}</p><h4>{{ include.item.detail.name }}</h4></div>
+    <p class="archive-experience-years">{{ include.item.detail.years }}</p>
   </header>
-  {% if include.item.qualification %}
-  <div class="archive-qualification"><h5>{{ include.item.qualification }}</h5><p>{{ include.item.qualification_dates }}{% if include.item.distinction %}<br>{{ include.item.distinction }}{% endif %}</p></div>
+  {% if include.item.detail.qualification %}
+  <div class="archive-qualification"><h5>{{ include.item.detail.qualification }}</h5><p>{{ include.item.detail.qualification_dates }}{% if include.item.detail.distinction %}<br>{{ include.item.detail.distinction }}{% endif %}</p></div>
   {% endif %}
   <ol class="archive-roles">
-    {% for role in include.item.roles %}
+    {% for role in include.item.detail.roles %}
     <li class="archive-role">
       <p class="archive-role-date">{{ role.dates }}</p>
       <div class="archive-role-body"><h5>{{ role.title }}{% if role.current %}<span class="archive-current">Current</span>{% endif %}</h5>

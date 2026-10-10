@@ -1,53 +1,63 @@
 # Ordered by sort_date by the shared card deck. Covers are static media frames.
 - id: particlesplat
   sort_date: 202609
-  year: '2026'
-  title: 'ParticleSplat: Self-supervised Object-centric Latent Particle Splatting'
-  subtitle: Preprint
-  cover: img/cards/particlesplat-reconstruction.jpg
-  video: img/publications/particlesplat-short-20s.mp4
-  venue: Preprint
-  authors: '<strong><span class="highlight-accent">Lyuxing He</span></strong>, Daniel Guo, Elizabeth Terveen, Deepak Pathak, David Held, Tal Daniel'
-  description: ParticleSplat is a self-supervised representation learning method using feedforward Gaussian splatting that learns 3D object decomposition without supervision or priors, enabling scene editing and robotic manipulation.
-  links:
-    - label: Paper
-      url: https://arxiv.org/pdf/2609.19463
-    - label: Website
-      url: https://lyuxinghe.github.io/ParticleSplat-website/
-    - label: Code
-      url: https://github.com/lyuxinghe/ParticleSplat
+  card:
+    year: '2026'
+    title: 'ParticleSplat: Self-supervised Object-centric Latent Particle Splatting'
+    subtitle: Preprint
+    image: img/cards/particlesplat-reconstruction.jpg
+    image_crop:
+      zoom: 2.08
+      x: 50
+      y: 75
+  detail:
+    video: img/publications/particlesplat-short-20s.mp4
+    venue: Preprint
+    authors: '<strong><span class="highlight-accent">Lyuxing He</span></strong>, Daniel Guo, Elizabeth Terveen, Deepak Pathak, David Held, Tal Daniel'
+    description: ParticleSplat is a self-supervised representation learning method using feedforward Gaussian splatting that learns 3D object decomposition without supervision or priors, enabling scene editing and robotic manipulation.
+    links:
+      - label: Paper
+        url: https://arxiv.org/pdf/2609.19463
+      - label: Website
+        url: https://lyuxinghe.github.io/ParticleSplat-website/
+      - label: Code
+        url: https://github.com/lyuxinghe/ParticleSplat
 - id: point-diffusion
   sort_date: 202604
-  year: '2026'
-  title: Disentangled Point Diffusion for Precise Object Placement
-  subtitle: ICRA
-  cover: img/cards/point-diffusion.jpg
-  video: img/cards/point-diffusion.mp4
-  authors: '<strong><span class="highlight-accent">Lyuxing He<sup aria-label="equal contribution">*</sup></span></strong>, Eric Cai<sup aria-label="equal contribution">*</sup>, Shobhit Aggarwal, Jianjun Wang, David Held'
-  venue: ICRA
-  venue_location: Vienna
-  venue_url: https://2026.ieee-icra.org/
-  description: A hierarchical object-centric point diffusion framework that combines dense GMM global initialization with disentangled geometry and frame diffusion to deliver SOTA precision, multi-modal coverage, and generalization in both rigid and non-rigid placement tasks.
-  links:
-    - label: Paper
-      url: https://arxiv.org/abs/2604.11793
-    - label: Website
-      url: https://3dgp-icra2026.github.io/
-    - label: Code
-      url: https://github.com/lyuxinghe/TAX-DPD
+  card:
+    year: '2026'
+    title: Disentangled Point Diffusion for Precise Object Placement
+    subtitle: ICRA
+    image: img/cards/point-diffusion.jpg
+  detail:
+    video: img/cards/point-diffusion.mp4
+    authors: '<strong><span class="highlight-accent">Lyuxing He<sup aria-label="equal contribution">*</sup></span></strong>, Eric Cai<sup aria-label="equal contribution">*</sup>, Shobhit Aggarwal, Jianjun Wang, David Held'
+    venue: ICRA
+    venue_location: Vienna
+    venue_url: https://2026.ieee-icra.org/
+    description: A hierarchical object-centric point diffusion framework that combines dense GMM global initialization with disentangled geometry and frame diffusion to deliver SOTA precision, multi-modal coverage, and generalization in both rigid and non-rigid placement tasks.
+    links:
+      - label: Paper
+        url: https://arxiv.org/abs/2604.11793
+      - label: Website
+        url: https://3dgp-icra2026.github.io/
+      - label: Code
+        url: https://github.com/lyuxinghe/TAX-DPD
 - id: gireplay
   sort_date: 202400
-  year: '2024'
-  title: 'Enabling Intelligent Procedures: Endoscopy Dataset Collection Trends and Pipeline'
-  subtitle: Handbook of Robotic Surgery
-  cover: img/cards/gireplay.jpg
-  image: img/publications/GIReplay.jpg
-  authors: '<strong><span class="highlight-accent">Lyuxing He</span></strong>, Huxin Gao, Hongliang Ren'
-  venue: Handbook of Robotic Surgery
-  venue_url: https://www.sciencedirect.com/book/9780443132711/handbook-of-robotic-surgery
-  description: An end-to-end surgical data automation and scene-reconstruction pipeline that assembles an in-vivo GI dataset and trains a pose-free NeRF to deliver dense 3D representations despite specular surfaces and limited data.
-  links:
-    - label: Paper
-      url: https://www.sciencedirect.com/science/article/abs/pii/B9780443132711000522
-    - label: Code
-      url: https://github.com/lyuxinghe/GI_Replay
+  card:
+    year: '2024'
+    title: 'Enabling Intelligent Procedures: Endoscopy Dataset Collection Trends and Pipeline'
+    subtitle: Handbook of Robotic Surgery
+    image: img/cards/gireplay.jpg
+  detail:
+    image: img/publications/GIReplay.jpg
+    authors: '<strong><span class="highlight-accent">Lyuxing He</span></strong>, Huxin Gao, Hongliang Ren'
+    venue: Handbook of Robotic Surgery
+    venue_url: https://www.sciencedirect.com/book/9780443132711/handbook-of-robotic-surgery
+    description: An end-to-end surgical data automation and scene-reconstruction pipeline that assembles an in-vivo GI dataset and trains a pose-free NeRF to deliver dense 3D representations despite specular surfaces and limited data.
+    links:
+      - label: Paper
+        url: https://www.sciencedirect.com/science/article/abs/pii/B9780443132711000522
+      - label: Code
+        url: https://github.com/lyuxinghe/GI_Replay

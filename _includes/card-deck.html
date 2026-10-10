@@ -3,7 +3,7 @@
   <h3 class="card-deck-heading" id="{{ include.id }}-heading">{{ include.heading }}</h3>
   <div class="card-deck-fan" aria-labelledby="{{ include.id }}-heading">
     {% for item in deck_items %}
-    {% include archive-card.html item=item id=include.id latest=forloop.last %}
+    {% include archive-card.html card=item.card item_id=item.id id=include.id latest=forloop.last %}
     {% endfor %}
   </div>
   <div class="card-deck-details">

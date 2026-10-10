@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Shared archive entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "sort_date", "card", "detail"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "sort_date": { "type": "integer", "minimum": 100000 },
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["year", "title", "subtitle", "image"],
+      "properties": {
+        "year": { "type": "string", "pattern": "^[0-9]{4}$" },
+        "title": { "type": "string", "minLength": 1 },
+        "supporting_text": { "type": "string", "minLength": 1 },
+        "subtitle": { "type": "string", "minLength": 1 },
+        "image": { "type": "string", "pattern": "^img/", "minLength": 1 },
+        "image_shape": { "type": "string", "pattern": "^(rectangle|circle)$" },
+        "image_crop": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["zoom", "x", "y"],
+          "properties": {
+            "zoom": { "type": "number", "minimum": 1, "maximum": 4 },
+            "x": { "type": "number", "minimum": 0, "maximum": 100 },
+            "y": { "type": "number", "minimum": 0, "maximum": 100 }
+          }
+        }
+      }
+    },
+    "detail": { "type": "object" }
+  }
+}

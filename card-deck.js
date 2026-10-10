@@ -3,6 +3,10 @@
 
   var narrow = window.matchMedia('(max-width: 767px)');
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  // A two-card section must use the same scale as a three-card section.
+  var sizeCount = Math.max.apply(null, [1].concat(Array.from(document.querySelectorAll('[data-card-deck] .card-deck-fan')).map(function (fan) {
+    return fan.querySelectorAll('[data-deck-card]').length;
+  })));
 
   document.querySelectorAll('[data-card-deck]').forEach(function (deck) {
     var rows = Array.from(deck.querySelectorAll('.card-deck-fan')).map(function (fan) {
@@ -165,8 +169,8 @@
       rows.forEach(function (row) {
         var width = row.fan.clientWidth;
         var count = row.cards.length;
-        var fullWidth = narrow.matches ? Math.min(270, window.innerWidth * 0.78) : count > 4 ? Math.max(155, Math.min(180, (width - 160) / (1 + (count - 1) * 0.8))) : Math.min(270, (width - 140) / (1 + (count - 1) * 0.96));
-        var compactWidth = narrow.matches ? Math.min(160, (width - 24 - (count - 1) * 8) / count) : Math.min(160, (width - 60) / count - 12);
+        var fullWidth = narrow.matches ? Math.min(baseCardWidth, window.innerWidth * 0.78) : sizeCount > 4 ? Math.max(155, Math.min(180, (width - 160) / (1 + (sizeCount - 1) * 0.8))) : Math.min(baseCardWidth, (width - 140) / (1 + (sizeCount - 1) * 0.96));
+        var compactWidth = narrow.matches ? Math.min(160, (width - 24 - (sizeCount - 1) * 8) / sizeCount) : Math.min(160, (width - 60) / sizeCount - 12);
         var cardWidth = current ? compactWidth : fullWidth;
         row.fan.style.setProperty('--card-width', cardWidth + 'px');
         row.fan.style.setProperty('--card-scale', String(cardWidth / baseCardWidth));

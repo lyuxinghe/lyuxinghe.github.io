@@ -36,6 +36,8 @@ press `Ctrl-C` to stop it. Restart it after changing `_config.yml`.
 | Projects and their card covers | `_data/projects.yml` |
 | Education and work experience | `_data/experience.yml` |
 | Shared card layout, styles, and interactions | `_includes/card-deck.html`, `card-deck.css`, `card-deck.js` |
+| Shared card schema and validation | `schemas/archive-entry.json`, `scripts/check_cards.rb` |
+| Persistent design preferences | `AGENTS.md` |
 | Expanded card content | `_includes/portfolio-detail.html`, `_includes/experience-detail.html` |
 | Title, description, and profile image path | `_config.yml` |
 | Main page layout | `index.html` |
@@ -51,15 +53,36 @@ Edit the source files above; `_site/` is generated output.
 
 Publications, Projects, and Experience use the same layered card deck. Cards
 are sorted by numeric `sort_date` (`YYYYMM`); all details are hidden on load.
-Each cover shows a static image or organization logo, `year` (or `card_date`
-for an Experience year), title, and `subtitle`. An optional `card_subtitle`
-overrides the cover label, such as the current or most recent industry job title.
-Full authors,
-abstracts, links, qualifications, and roles remain
-in the detail panel below. Experience has separate Education & Research and
+Every entry in all three data files uses one structure:
+
+```yaml
+- id: example
+  sort_date: 202610
+  card:
+    year: '2026'
+    title: Example title
+    supporting_text: Optional degree or role below the title
+    subtitle: Conference or category
+    image: img/cards/example.jpg
+  detail:
+    description: Content for the expanded detail panel
+```
+
+`schemas/archive-entry.json` defines this contract. The four required `card`
+fields and optional `supporting_text`, `image_shape`, and `image_crop` are the only inputs to
+`_includes/archive-card.html`; style settings, legacy
+field aliases, and extra card fields are rejected. Full authors, abstracts,
+links, qualifications, and roles live in `detail`, whose fields may vary by
+section. Experience has separate Education & Research and
 Industry card rows using the existing education/work data lists. All six
 cards share one detail area beneath both rows. The card markup is shared
 through `_includes/archive-card.html`.
+
+Supporting text appears directly below the bold title, inside the same reserved
+title slot. Experience cards use it for degrees, visiting roles, and job titles;
+their footer lists Education & Research, Research, or Industry. The optional
+field is available to every section and uses the same font size as the title
+with regular (400) weight.
 
 Publication detail headings show the year, followed by the underlined `venue`
 and optional `venue_location` (for example, `2026, ICRA · Vienna`). Entries
@@ -68,11 +91,36 @@ size and wraps naturally when needed.
 
 Hover or keyboard-focus a card to preview its detail and shrink the cards
 proportionally, keeping the image, year, full title, and subtitle visible.
-Every card uses the same 270:390 portrait proportion, including Experience,
-at both sizes and all viewport widths. Covers share a media area and a footer
-for the venue or role; organization logos are centered on the plain card face.
+Every card uses the same 270:350 portrait proportion, including Experience,
+at both sizes and all viewport widths. Covers use a shared four-row grid for the
+visual, year, title, and subtitle. Images and logos are aligned at the top and
+horizontally centered on the plain card face. The shared `image_shape` option
+defaults to `rectangle`; Experience records use `circle` to round the logo
+inside the same fixed visual slot. This changes only the image's silhouette,
+not the card's dimensions or the placement of its text.
+Optional `image_crop: {zoom: 2.08, x: 50, y: 75}` zooms a cover within the fixed
+visual slot, with `x` and `y` specifying the CSS transform origin in percentages.
+Zoom is limited to 1–4 and origins to 0–100. ParticleSplat uses this shared option
+to frame its central robot and reconstruction panels without slide headings or
+footer text. The original image file and expanded media are independent of this
+thumbnail framing.
+Experience logos use original 400px square assets, plus CMU's 900px PNG, for
+crisp rendering at up to three times the 130px display size. Source pages and
+native dimensions are recorded in `img/experience/sources.json`. Prefer original
+assets at least 400px square or vectors; do not upscale small thumbnails.
+All sections use exactly the same card font family, sizes, weights, colors,
+and spacing rules. Shared `--card-year-size`, `--card-title-size`, and
+`--card-subtitle-size` tokens control typography. The visual slot is 130px tall
+at full size; the title slot reserves four lines, and the footer fits two subtitle
+lines. Every slot starts at the same height relative to its card, even for short
+titles. Spare title space stays inside the title slot rather than shifting the
+other content. These slots scale together with the card; no section receives a
+typography or geometry override.
 The layout scales from `--card-base-width`, rather than each row's available
 width, so responsive rows cannot stretch the card shape.
+All decks use the largest row's card count to choose the same responsive
+width, including two-card sections, so their text stays the same size at
+the same viewport and open/closed state.
 Cards stay upright on a shared baseline within each row; the opened card
 lifts 14px above its neighbors.
 Moving the pointer off a card closes its unpinned preview after a short delay.
@@ -108,8 +156,17 @@ ffmpeg -ss 16 -i img/publications/particlesplat-short-20s.mp4 -frames:v 1 -vf 's
 ## Build the static site
 
 ```bash
+make check
+make test
 make build
 ```
+
+`make check` validates all card records, image paths, unique IDs, and the
+absence of section- or logo-specific card CSS. `make build` and `make dev`
+run this check first. `make test` exercises the validator with valid records
+and deliberately invalid data and styling. Run `make check` after editing
+data or CSS during an already-running preview; the live reload server does
+not rerun Make prerequisites on each file change.
 
 The generated site is written to `_site/`, which is ignored by Git.
 These commands only build and serve locally; publishing is a separate step.

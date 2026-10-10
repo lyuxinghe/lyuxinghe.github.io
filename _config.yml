@@ -6,7 +6,7 @@ safe: false
 
 
 ### site serving configuration ###
-exclude: [CNAME, README.md, DEV.md, Gemfile, Gemfile.lock, Makefile, vendor, .gitignore]
+exclude: [CNAME, README.md, DEV.md, AGENTS.md, Gemfile, Gemfile.lock, Makefile, vendor, .gitignore, schemas, scripts, test]
 permalink: /:title ## disables post output
 timezone: null
 lsi: false
