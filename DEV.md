@@ -91,7 +91,7 @@ size and wraps naturally when needed.
 
 Hover or keyboard-focus a card to preview its detail and shrink the cards
 proportionally, keeping the image, year, full title, and subtitle visible.
-Every card uses the same 270:350 portrait proportion, including Experience,
+Every card uses the same 270:366 portrait proportion, including Experience,
 at both sizes and all viewport widths. Covers use a shared four-row grid for the
 visual, year, title, and subtitle. Images and logos are aligned at the top and
 horizontally centered on the plain card face. The shared `image_shape` option
@@ -112,7 +112,10 @@ All sections use exactly the same card font family, sizes, weights, colors,
 and spacing rules. Shared `--card-year-size`, `--card-title-size`, and
 `--card-subtitle-size` tokens control typography. The visual slot is 130px tall
 at full size; the title slot reserves four lines, and the footer fits two subtitle
-lines. Every slot starts at the same height relative to its card, even for short
+lines. Shared gaps leave 14px after the visual, 10px after the year, and 12px
+after the title slot at full size, with 10px above the footer text and 8px
+between a title and its optional supporting text. These gaps scale with the
+card. Every slot starts at the same height relative to its card, even for short
 titles. Spare title space stays inside the title slot rather than shifting the
 other content. These slots scale together with the card; no section receives a
 typography or geometry override.
