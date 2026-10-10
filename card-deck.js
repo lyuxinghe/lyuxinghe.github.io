@@ -13,6 +13,7 @@
     var details = deck.querySelector('.card-deck-details');
     if (!details || !cards.length || cards.length !== panels.length) return;
     var motionDuration = parseFloat(getComputedStyle(deck).getPropertyValue('--card-motion-duration')) || 650;
+    var baseCardWidth = parseFloat(getComputedStyle(deck).getPropertyValue('--card-base-width')) || 270;
 
     var current = null;
     var pinned = null;
@@ -164,16 +165,16 @@
       rows.forEach(function (row) {
         var width = row.fan.clientWidth;
         var count = row.cards.length;
-        var fullWidth = narrow.matches ? Math.min(270, window.innerWidth * 0.78) : count > 4 ? Math.max(155, Math.min(180, (width - 160) / (1 + (count - 1) * 0.8))) : Math.min(270, (width - 140) / (1 + (count - 1) * 0.88));
+        var fullWidth = narrow.matches ? Math.min(270, window.innerWidth * 0.78) : count > 4 ? Math.max(155, Math.min(180, (width - 160) / (1 + (count - 1) * 0.8))) : Math.min(270, (width - 140) / (1 + (count - 1) * 0.96));
         var compactWidth = narrow.matches ? Math.min(160, (width - 24 - (count - 1) * 8) / count) : Math.min(160, (width - 60) / count - 12);
         var cardWidth = current ? compactWidth : fullWidth;
         row.fan.style.setProperty('--card-width', cardWidth + 'px');
-        row.fan.style.setProperty('--card-scale', String(cardWidth / fullWidth));
+        row.fan.style.setProperty('--card-scale', String(cardWidth / baseCardWidth));
         if (narrow.matches) {
           revealCard(row.cards.indexOf(current) !== -1 ? current : row.cards[row.cards.length - 1], false);
           return;
         }
-        var step = current ? cardWidth + 12 : count > 4 ? Math.min(cardWidth * 0.8, (width - cardWidth - 150) / (count - 1)) : cardWidth * 0.88;
+        var step = current ? cardWidth + 12 : count > 4 ? Math.min(cardWidth * 0.8, (width - cardWidth - 150) / (count - 1)) : cardWidth * 0.96;
         var middle = (count - 1) / 2;
         row.cards.forEach(function (card, index) {
           var offset = index - middle;

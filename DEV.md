@@ -68,6 +68,11 @@ size and wraps naturally when needed.
 
 Hover or keyboard-focus a card to preview its detail and shrink the cards
 proportionally, keeping the image, year, full title, and subtitle visible.
+Every card uses the same 270:390 portrait proportion, including Experience,
+at both sizes and all viewport widths. Covers share a media area and a footer
+for the venue or role; organization logos are centered on the plain card face.
+The layout scales from `--card-base-width`, rather than each row's available
+width, so responsive rows cannot stretch the card shape.
 Cards stay upright on a shared baseline within each row; the opened card
 lifts 14px above its neighbors.
 Moving the pointer off a card closes its unpinned preview after a short delay.
