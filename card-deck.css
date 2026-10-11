@@ -112,6 +112,8 @@
 }
 .card-deck .archive-card-pin {
   position: absolute;
+  /* Keep the nail above thumbnails, which create a stacking context when zoomed. */
+  z-index: 1;
   top: 10px;
   right: 10px;
   width: 18px;
