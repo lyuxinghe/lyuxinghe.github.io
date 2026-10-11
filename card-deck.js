@@ -16,8 +16,12 @@
     var panels = Array.from(deck.querySelectorAll('[data-deck-panel]'));
     var details = deck.querySelector('.card-deck-details');
     if (!details || !cards.length || cards.length !== panels.length) return;
-    var motionDuration = parseFloat(getComputedStyle(deck).getPropertyValue('--card-motion-duration')) || 650;
-    var baseCardWidth = parseFloat(getComputedStyle(deck).getPropertyValue('--card-base-width')) || 270;
+    var deckStyle = getComputedStyle(deck);
+    var motionDuration = parseFloat(deckStyle.getPropertyValue('--card-motion-duration')) || 460;
+    var detailDuration = parseFloat(deckStyle.getPropertyValue('--detail-motion-duration')) || 300;
+    var pinDuration = parseFloat(deckStyle.getPropertyValue('--pin-motion-duration')) || 180;
+    var motionEasing = deckStyle.getPropertyValue('--card-motion-easing').trim() || 'cubic-bezier(.22,.68,0,1)';
+    var baseCardWidth = parseFloat(deckStyle.getPropertyValue('--card-base-width')) || 270;
 
     var current = null;
     var pinned = null;
@@ -61,16 +65,13 @@
       pin.getAnimations().forEach(function (animation) { animation.cancel(); });
       if (reducedMotion.matches) return;
       var frames = adding ? [
-        { opacity: 0, transform: 'translateY(-12px) scale(1.3)', filter: 'blur(1px)', offset: 0 },
-        { opacity: 1, transform: 'translateY(1px) scale(.94)', filter: 'blur(0)', offset: .65 },
-        { opacity: 1, transform: 'translateY(-1px) scale(1.03)', offset: .82 },
-        { opacity: 1, transform: 'translateY(0) scale(1)', offset: 1 }
+        { opacity: 0, transform: 'scale(.94)' },
+        { opacity: 1, transform: 'scale(1)' }
       ] : [
-        { opacity: 1, transform: 'translateY(0) scale(1)', filter: 'blur(0)', offset: 0 },
-        { opacity: 1, transform: 'translateY(-3px) scale(1.06)', offset: .35 },
-        { opacity: 0, transform: 'translateY(-10px) scale(1.2)', filter: 'blur(.5px)', offset: 1 }
+        { opacity: 1, transform: 'scale(1)' },
+        { opacity: 0, transform: 'scale(.94)' }
       ];
-      pin.animate(frames, { duration: adding ? 560 : 400, easing: 'cubic-bezier(.22,.8,.24,1)' });
+      pin.animate(frames, { duration: adding ? pinDuration : Math.round(pinDuration * .75), easing: motionEasing });
     }
 
     function finishDetailMotion() {
@@ -86,7 +87,7 @@
 
     function detailFrame(panel) {
       var style = getComputedStyle(panel);
-      return { opacity: style.opacity, transform: style.transform, clipPath: style.clipPath === 'none' ? 'inset(0 0 0% 0)' : style.clipPath };
+      return { opacity: style.opacity, transform: style.transform };
     }
 
     function updateDetails(card) {
@@ -105,34 +106,29 @@
         panel.setAttribute('aria-hidden', String(!active));
         panel.inert = !active;
       });
-      if (next) {
-        var cardBox = card.getBoundingClientRect();
-        var detailBox = details.getBoundingClientRect();
-        var origin = Math.max(0, Math.min(100, (cardBox.left + cardBox.width / 2 - detailBox.left) / Math.max(1, detailBox.width) * 100));
-        next.style.setProperty('--detail-origin', origin + '%');
-      }
       if (!canAnimate || (!previous && !next)) return;
 
-      var folded = { opacity: 0, transform: 'perspective(900px) translateY(-28px) rotateX(-8deg) scale(.96, .92)', clipPath: 'inset(0 0 96% 0)' };
-      var unfolded = { opacity: 1, transform: 'perspective(900px) translateY(0) rotateX(0deg) scale(1)', clipPath: 'inset(0 0 0% 0)' };
-      var duration = next ? motionDuration : Math.round(motionDuration * .8);
+      // Let the cards settle first; details need only a small rise and a soft fade.
+      var entering = { opacity: 0, transform: 'translateY(8px)' };
+      var visible = { opacity: 1, transform: 'translateY(0)' };
+      var delay = nextFrame ? 0 : (previous ? 60 : 100);
+      var duration = previous && next ? detailDuration + delay : motionDuration;
       var toHeight = next ? next.offsetHeight : 0;
-      var easing = 'cubic-bezier(.22,.8,.24,1)';
       details.style.height = fromHeight + 'px';
       details.classList.add('is-transitioning');
       if (previous && previous !== next) {
-        detailAnimations.push(previous.animate([previousFrame, folded], {
-          duration: next ? Math.round(duration * .55) : duration,
-          easing: 'cubic-bezier(.4,0,.6,1)', fill: 'both'
+        detailAnimations.push(previous.animate([previousFrame, { opacity: 0, transform: previousFrame.transform }], {
+          duration: Math.round(detailDuration * .5),
+          easing: 'ease-out', fill: 'both'
         }));
       }
       if (next) {
-        detailAnimations.push(next.animate([nextFrame || folded, unfolded], {
-          duration: duration, easing: easing, fill: 'both'
+        detailAnimations.push(next.animate([nextFrame || entering, visible], {
+          duration: detailDuration, delay: delay, easing: motionEasing, fill: 'both'
         }));
       }
       var space = details.animate([{ height: fromHeight + 'px' }, { height: toHeight + 'px' }], {
-        duration: duration, easing: easing, fill: 'both'
+        duration: duration, easing: motionEasing, fill: 'both'
       });
       detailAnimations.push(space);
       space.onfinish = finishDetailMotion;

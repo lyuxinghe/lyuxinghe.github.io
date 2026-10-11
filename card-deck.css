@@ -15,9 +15,11 @@
   --card-title-size: var(--text-size);
   --card-subtitle-size: 15px;
   --card-scale: 1;
-  --card-lift: 14px;
-  --card-motion-duration: 650ms;
-  --card-motion-easing: cubic-bezier(.22, .8, .24, 1);
+  --card-lift: 8px;
+  --card-motion-duration: 460ms;
+  --card-motion-easing: cubic-bezier(.22, .68, 0, 1);
+  --detail-motion-duration: 300ms;
+  --pin-motion-duration: 180ms;
   color: var(--section-fg);
   font-family: var(--font-sans);
 }
@@ -123,7 +125,7 @@
   background: conic-gradient(from 35deg, #d6d6d1, #fafaf7 18%, #acaaa3 40%, #e4e3dd 59%, #93918a 81%, #d6d6d1);
   box-shadow: inset 0 0 0 1px rgba(255,255,255,.6), 0 1px 1px rgba(0,0,0,.25), 1px 3px 4px rgba(0,0,0,.22);
   opacity: 0;
-  transform: translateY(-10px) scale(1.2);
+  transform: scale(.94);
   pointer-events: none;
 }
 .card-deck .archive-card-pin::before {
@@ -146,7 +148,7 @@
   background: rgba(255,255,255,.9);
   filter: blur(.4px);
 }
-.card-deck .archive-card.is-pinned .archive-card-pin { opacity: 1; transform: translateY(0) scale(1); }
+.card-deck .archive-card.is-pinned .archive-card-pin { opacity: 1; transform: scale(1); }
 
 /* Use one scale for the entire preview so every label remains visible. */
 .card-deck.is-open .card-deck-fan { height: calc(var(--card-height) * var(--card-scale) + 46px); }
@@ -155,7 +157,6 @@
 .card-deck .archive-detail {
   padding: 32px 0;
   scroll-margin-top: 110px;
-  transform-origin: var(--detail-origin, 50%) 0;
 }
 .card-deck .card-deck-details { position: relative; }
 .card-deck .card-deck-details.is-transitioning { overflow: hidden; }

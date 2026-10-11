@@ -125,7 +125,7 @@ All decks use the largest row's card count to choose the same responsive
 width, including two-card sections, so their text stays the same size at
 the same viewport and open/closed state.
 Cards stay upright on a shared baseline within each row; the opened card
-lifts 14px above its neighbors.
+lifts 8px above its neighbors.
 Moving the pointer off a card closes its unpinned preview after a short delay.
 During the initial shrink, the space between its original and compact position
 stays hoverable so the card can still be reached and pinned.
@@ -138,13 +138,15 @@ are hovered; clicking another card moves the pin. Each section has its own
 pin. Keyboard users can use Left/Right, Home, and End to navigate,
 Enter/Space to pin or unpin, and Escape to close. On small screens the
 full-size cards form a swipeable row, then compact when opened.
-Card motion uses the shared `--card-motion-duration` (650ms), including the
-hover transition guard. Circular silver pins settle into place when added
-and lift away when removed. Reduced-motion preferences disable these effects.
-Details unfold down from the selected card's edge and fold back up on close.
-Their container height animates with the reveal, including when switching
+Card motion uses the shared `--card-motion-duration` (460ms) and easing,
+including the hover transition guard. Circular silver pins fade in with a
+subtle scale change over 180ms and fade out over 135ms, without bouncing.
+Details fade in over 300ms with an 8px rise after a short delay so the cards
+can start settling first. Outgoing content fades in place over 150ms.
+The detail container smoothly adjusts its height, including when switching
 between cards. Outgoing details become inert immediately and are removed
-after the exit animation; interrupted motions resume from their visible state.
+after the transition; interrupted motions resume from their visible state.
+Reduced-motion preferences disable these effects.
 Without JavaScript, every detail remains readable. Videos only autoplay when
 their selected details are on screen; reduced-motion settings keep previews
 still, with video controls available for manual playback.

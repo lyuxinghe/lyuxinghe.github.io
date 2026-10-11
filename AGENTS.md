@@ -43,6 +43,8 @@ and proportions. This is an explicit preference, not a default to vary by sectio
   Keep download provenance in `img/experience/sources.json`.
 - Preserve the two experience rows and their shared detail area, hover,
   pin/unpin, circular nail indicator, upright lift, and reveal animations.
+- Keep motion restrained and shared: smooth resizing, short fades, and small
+  vertical offsets. Avoid folding, perspective transforms, and bouncing pins.
 - Keep the rest of the website's content and design intact unless requested.
 
 Run `make check`, `make test`, and `make build` after changing the card contract.
